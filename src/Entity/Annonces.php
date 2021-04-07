@@ -65,6 +65,11 @@ class Annonces
      */
     private $medias;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isSelled;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -213,6 +218,18 @@ class Annonces
                 $media->setAnnonce(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsSelled(): ?bool
+    {
+        return $this->isSelled;
+    }
+
+    public function setIsSelled(bool $isSelled): self
+    {
+        $this->isSelled = $isSelled;
 
         return $this;
     }
